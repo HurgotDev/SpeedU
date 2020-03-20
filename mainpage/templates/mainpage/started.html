@@ -1,0 +1,175 @@
+{% extends 'mainpage/HTMLbase.html' %}
+{% load static %}
+
+{% block content %}
+<!-- breadcrumb start-->
+<section class="breadcrumb breadcrumb_bg">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="breadcrumb_iner text-center">
+                  <div class="breadcrumb_iner_item">
+                      <h2>Ofrecemos la mejor experienca en tutorias</h2>
+                      <p>Inicio<span>/</span>Empezar</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- breadcrumb end-->
+
+<!-- form bussines start -->
+<section class="contact-section section_padding" id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="row mb-2 mb-md-4">
+          <div class="col-12">
+            <h3 class="text-center">SpeedU está disponible para insticiones</h3>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-sm-12 col-lg-7 mt-4 mt-md-5">
+              <div class="row h-100">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-4 text-center text-success"><i class="ti-check-box ts-5"></i></div>
+                    <div class="col-8">
+                      <div class="row">
+                        <div class="col-12 border-bottom border-success">
+                          <h4>Educación superior</h4>
+                        </div>
+                        <div class="col-12">
+                          <p>
+                            Universidades<br>
+                            Institutos tecnológicos
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 mt-3 mt-md-5">
+                  <div class="row">
+                    <div class="col-4 text-center text-accent"><i class="ti-check-box ts-5"></i></div>
+                    <div class="col-8">
+                      <div class="row">
+                        <div class="col-12 border-bottom border-accent">
+                          <h4>Colegios</h4>
+                        </div>
+                        <div class="col-12">
+                          <p>Secundaria</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <!--  <div class="col-12 mt-3">
+                  <div class="row">
+                    <div class="col-4 text-center text-primary"><i class="ti-check-box ts-5"></i></div>
+                    <div class="col-8">
+                      <div class="row">
+                        <div class="col-12 border-bottom border-primary">
+                          <h4>Hola</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>-->
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="row mt-4 mt-md-0">
+          <div class="col-12">
+            <h2 class="contact-title text-center">Registrese para comenzar</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <form class="form-contact" action="#" method="post">
+              <div class="row">
+                <div class="col-12">
+                  <div class="input-group mt-3">
+                    <label for="edition">Edición</label>
+                    <select class="form-control w-100" name="edition" id="edition" required>
+                      <option value="0">Escoja la edicion</option>
+                      <option value="1">Educación superior</option>
+                      <option value="2">Colegios</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="input-group mt-3">
+                    <label for="name">Nombres</label>
+                    <input id="name" type="text" class="form-control w-100" name="name" placeholder="Ingrese sus nombres" required onfocus="this.placeholder = ''" onblur="this.placeholder='Ingrese sus nombres'">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="input-group mt-3">
+                    <label for="lastname">Apellidos</label>
+                    <input id="lastname" type="text" name="lastname" class="form-control w-100" placeholder="Ingrese sus apellidos" required onfocus="this.placeholder=''" onblur="this.placeholder='Ingrese sus apellidos'">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="input-group mt-3">
+                    <label for="email">Correo electrónico</label>
+                    <input id="email" type="email" name="email" class="form-control w-100" placeholder="Ingrese su email" required onfocus="this.placeholder=''" onblur="this.placeholder='Ingrese su correo'">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="input-group mt-3">
+                    <label for="phone">Teléfono - Celular</label>
+                    <input id="phone" type="text" name="phone" class="form-control w-100" placeholder="Ingrese su teléfono o celular" required onfocus="this.placeholder=''" onblur="this.placeholder='Ingrese su teléfono o celular'">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="input-group mt-3">
+                    <div class="col-12"><label for="address">Localidad</label></div>
+                    <div class="col-12">
+                      <div class="row">
+                        <div class="col-6 p-0 pr-2">
+                          <select id="address" class="form-control w-100" name="departament">
+                            <option value="0">Departamento</option>
+                          </select>
+                        </div>
+                        <div class="col-6 p-0">
+                          <select class="form-control w-100" name="city">
+                            <option value="0">Ciudad</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="input-group mt-3">
+                    <label for="institution">Institución</label>
+                    <input id="institution" type="text" name="instition" class="form-control w-100" placeholder="Ingrese su institución" required onfocus="this.placeholder=''" onblur="this.placeholder='Ingrese su institución'">
+                  </div>
+                </div>
+                  <div class="col-12">
+                    <div class="input-group mt-3 d-flex">
+                      <div class="primary-checkbox mt-1 mr-2">
+                        <input type="checkbox" name="terms" id="primary-checkbox" required>
+                        <label for="primary-checkbox"></label>
+                      </div>
+                      <p class="mb-2">Acepto el <u><a href="#" style="color: #ff663b !important;"> acuerdo general del servicio</a></u></p>
+                    </div>
+                  </div>
+              </div>
+              <div class="input-group mt-3">
+                <button type="submit" name="submit" class="button button-contactForm btn_1 btn-block">Registrar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- form bussines end -->
+
+{% endblock %}
