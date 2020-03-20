@@ -6,17 +6,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">  
-    
-    <meta name="mobile-web-app-capable" content="yes">
-
     <title>{{ page_title }} - SpeedU</title>
 
-    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/mobile/icon-72x72.png' %}">
-    <link ​rel="apple-touch-icon" sizes="114x114" href="{% static 'img/mobile/icon-114x114.png' %}">
-    <link ​rel="apple-touch-icon" href="{% static 'img/mobile/icon-57x57.png' %}">
+    <link rel="manifest" href="{% static 'json/manifest.json' %}">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpeedU">
+    <link rel="apple-touch-icon" href="{% static '/img/apple-mobile-web-app-title-152x152.png' %}">
     <!--<link ​rel="apple-touch-startup-image" href="{% static 'img/mobile/splash-startup.png' %}">-->
+   
+    <meta name="description" content="Plataforma de tutorias">
+    <meta name="theme-color" content="#2F3BA2" />
 
     <link rel="icon" href="{% static 'img/favicon.png' %}">
     <!-- Bootstrap CSS -->
@@ -169,6 +170,7 @@ SpeedU Copyright &copy;<script>document.write(new Date().getFullYear());</script
     <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
     <script src="{% static 'js/waypoints.min.js' %}"></script>
     <!-- custom js -->
+    <script src="{% static 'js/custom.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
 </body>
 
