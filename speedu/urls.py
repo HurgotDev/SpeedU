@@ -20,6 +20,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('mainpage.urls')),
+    path('', include('speedu_tutor.urls')),
 
     path('admin/', admin.site.urls),
 ]

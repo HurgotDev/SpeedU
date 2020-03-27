@@ -1,0 +1,61 @@
+
+
+{% extends 'speedu_tutor/HTMLbase.html' %}
+
+{% block styles %}
+    <style>
+        body {
+            background: #17a2b8 !important;
+        }
+    </style>
+{% endblock %}
+
+{% block navbar %}{% endblock %}
+
+{% block content %}
+<section class="ftco-section ftco-section-2 section-signup page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+          <div class="card card-login py-4">
+            <form class="form-login" method="post" action="{% url 'login' %}">
+              {% csrf_token %}
+              <div class="card-header card-header-primary text-center">
+                <h4 class="card-title">Ingresa</h4>
+              </div>
+              {% if form.errors or not user_valid%}
+                <div class="bg-danger px-2 py-1 text-center">
+                    <span style="color: #fff !important;">Usuario o contraseña incorrectos.</span>
+                </div>
+              {% endif %}
+              <!-- <p class="description text-center">Or Be Classical</p> -->
+              <div class="card-body p-4">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text {% if form.errors.username or not user_valid%}border-danger{%endif%}">
+                      <i class="ion-ios-person"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control {% if form.errors.username or not user_valid%}border-danger{%endif%}" 
+                  placeholder="Usuario..." name='username' {% if form.username.value %} value="{{ form.username.value }}" {% endif %}>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text {% if form.errors.password or not user_valid%}border-danger{%endif%}">
+                      <i class="ion-ios-lock"></i>
+                    </span>
+                  </div>
+                  <input type="password" class="form-control {% if form.errors.password or not user_valid%}border-danger{%endif%}"
+                  placeholder="Contraseña..." name="password" {% if form.password.value %} value="{{ form.password.value }}" {% endif %}>
+                </div>
+              </div>
+              <div class="footer text-center">
+                <input type="submit" class="btn btn-primary" value="Ingresa">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

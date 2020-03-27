@@ -7,17 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>{{ page_title }} - SpeedU</title>
-
-    <link rel="manifest" href="{% static 'json/manifest.json' %}">
-
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="SpeedU">
-    <link rel="apple-touch-icon" href="{% static '/img/mobile/icon-152x152.png' %}">
-    <!--<link ​rel="apple-touch-startup-image" href="{% static 'img/mobile/splash-startup.png' %}">-->
    
     <meta name="description" content="Plataforma de tutorias">
-    <meta name="theme-color" content="#FFFF" />
+    <meta name="theme-color" content="#FFFFFF" />
 
     <link rel="icon" href="{% static 'img/favicon.png' %}">
     <!-- Bootstrap CSS -->
@@ -57,16 +49,19 @@
                             id="navbarSupportedContent">
                             <ul class="navbar-nav align-items-center">
                                 <li class="nav-item active">
-                                    <a class="scroll nav-link" href="{{ menu_links.home }}">Inicio</a>
+                                    <a class="{% if scroll %}scroll{% endif %} nav-link" href="{{ menu_links.home }}" data-offset="0">Inicio</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="scroll nav-link" href="{{ menu_links.about }}">Acerca de</a>
+                                    <a class="{% if scroll %}scroll{% endif %} nav-link" href="{{ menu_links.about }}" data-offset="10">Acerca de</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="scroll nav-link" href="{{menu_links.contact }}">Contacto</a>
+                                    <a class="{% if scroll %}scroll{% endif %} nav-link" href="{{menu_links.contact }}" data-offset="20">Contacto</a>
                                 </li>
                                 <li class="d-none d-lg-block">
                                     <a class="btn_1" href="#">Ingresa</a>
+                                </li>
+                                <li class="nav-item d-block d-lg-none">
+                                    <a href="#" class="btn_1 m-0 ml-1">Ingresa</a>
                                 </li>
                             </ul>
                         </div>
@@ -93,14 +88,14 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-xl-4">
                     <div class="single-footer-widget footer_2">
-                        <h4>Newsletter</h4>
-                        <p>Stay updated with our latest trends Seed heaven so said place winged over given forth fruit.
+                        <h4>Boletin informativo</h4>
+                        <p>Manténgase actualizado con nustras últimas tendencias
                         </p>
-                        <form action="" method="post">
+                        <form action="{% url 'newsletter' %}" method="post">
                             {% csrf_token %}
                             <div class="form-group">
                                 <div class="input-group mb-3">
-                                    <input type="email" class="form-control" placeholder='Ingrese su email'
+                                    <input type="email" name="email" class="form-control" placeholder='Ingrese su email'
                                         onfocus="this.placeholder = ''"
                                         onblur="this.placeholder = 'Ingrese su email'" required>
                                     <div class="input-group-append">
@@ -169,8 +164,8 @@ SpeedU Copyright &copy;<script>document.write(new Date().getFullYear());</script
     <script src="{% static 'js/slick.min.js' %}"></script>
     <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
     <script src="{% static 'js/waypoints.min.js' %}"></script>
+    {% block scripts %}{% endblock %}
     <!-- custom js -->
-    <script src="{% static 'js/custom.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
 </body>
 

@@ -1,6 +1,33 @@
 {% extends 'mainpage/HTMLbase.html' %}
 {% load static %}
 {% block content %}
+
+{% if messages %}
+<!-- Modal to newsletter email registration -->
+<div class="modal fade" id="modalNewsletter" tabindex="-1" role="dialog" aria-labelledby="ModelCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLongTitle">{{ message.0 }}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="pl-3 pr-3">
+              {{ message.1 }}
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn_1" data-dismiss="modal">OK</button>
+          <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+        </div>
+      </div>
+    </div>
+</div>
+<!-- end modal -->
+{% endif %}
+
 <!-- banner part start-->
 <section class="banner_part" id="home">
     <div class="container">
@@ -21,7 +48,7 @@
         </div>
     </div>
 </section>
-<!-- banner part start-->
+<!-- banner part end-->
 
 <!-- feature_part start-->
 <section class="feature_part" id="about">
@@ -215,22 +242,22 @@
         <div class="media contact-info">
           <span class="contact-info__icon"><i class="ti-home"></i></span>
           <div class="media-body">
-            <h3>Buttonwood, California.</h3>
-            <p>Rosemead, CA 91770</p>
+            <h3>Colombia, Barranquilla.</h3>
+            <p>El Prado, Calle 58</p>
           </div>
         </div>
         <div class="media contact-info">
           <span class="contact-info__icon"><i class="ti-tablet"></i></span>
           <div class="media-body">
-            <h3>00 (440) 9865 562</h3>
-            <p>Mon to Fri 9am to 6pm</p>
+            <h3>(035) 1234567</h3>
+            <p>Lineas abiertas desde las 8am hasta las 6pm</p>
           </div>
         </div>
         <div class="media contact-info">
           <span class="contact-info__icon"><i class="ti-email"></i></span>
           <div class="media-body">
-            <h3>support@colorlib.com</h3>
-            <p>Send us your query anytime!</p>
+            <h3>speedu.tutorias@gmail.com</h3>
+            <p>¡Envíenos su consulta en cualquier momento!</p>
           </div>
         </div>
       </div>

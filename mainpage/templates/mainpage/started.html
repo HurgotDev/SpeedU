@@ -89,55 +89,82 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <form class="form-contact" action="#" method="post">
+            <form class="form-contact" action="{% url 'get-started' %}" method="post">
+              {% csrf_token %}
+              {% if form.errors %}
+                <p class="p-1 bg-danger text-center rounded text-white">
+                  {% if form.terms.errors %}
+                    Por favor acepte el acuerdo general del servicio
+                  {% else %}
+                    Por favor, complete o corrija los campos
+                  {% endif %}
+                </p>
+              {% endif %}
               <div class="row">
                 <div class="col-12">
                   <div class="input-group mt-3">
-                    <label for="edition">Edición</label>
-                    <select class="form-control w-100" name="edition" id="edition" required>
-                      <option value="0">Escoja la edicion</option>
-                      <option value="1">Educación superior</option>
-                      <option value="2">Colegios</option>
+                    {{ form.edition.label_tag }}
+                    <select class="form-control w-100 {% if form.edition.errors %}border-danger{% endif %}"
+                    name="edition" id="id_edition" required>
+                      {% for option in form.edition %}
+                          {{ option }}
+                      {% endfor %}
                     </select>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="input-group mt-3">
-                    <label for="name">Nombres</label>
-                    <input id="name" type="text" class="form-control w-100" name="name" placeholder="Ingrese sus nombres" required onfocus="this.placeholder = ''" onblur="this.placeholder='Ingrese sus nombres'">
+                    {{ form.name.label_tag }}
+                    <input id="id_name" type="text" class="form-control w-100 {% if form.name.errors %}border-danger{% endif %}" 
+                    name="name" placeholder="Ingrese sus nombres" 
+                    required onfocus="this.placeholder = ''" onblur="this.placeholder='Ingrese sus nombres'">
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="input-group mt-3">
-                    <label for="lastname">Apellidos</label>
-                    <input id="lastname" type="text" name="lastname" class="form-control w-100" placeholder="Ingrese sus apellidos" required onfocus="this.placeholder=''" onblur="this.placeholder='Ingrese sus apellidos'">
+                    {{ form.lastname.label_tag }}
+                    <input id="id_lastname" type="text" name="lastname"
+                    class="form-control w-100 {% if form.lastname.errors %}border-danger{% endif %}"
+                    placeholder="Ingrese sus apellidos" required onfocus="this.placeholder=''"
+                    onblur="this.placeholder='Ingrese sus apellidos'">
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="input-group mt-3">
-                    <label for="email">Correo electrónico</label>
-                    <input id="email" type="email" name="email" class="form-control w-100" placeholder="Ingrese su email" required onfocus="this.placeholder=''" onblur="this.placeholder='Ingrese su correo'">
+                    {{ form.email.label_tag }}
+                    <input id="id_email" type="email" name="email" 
+                    class="form-control w-100 {% if form.email.errors %}border-danger{% endif %}" 
+                    placeholder="Ingrese su email" required onfocus="this.placeholder=''" 
+                    onblur="this.placeholder='Ingrese su correo'">
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="input-group mt-3">
-                    <label for="phone">Teléfono - Celular</label>
-                    <input id="phone" type="text" name="phone" class="form-control w-100" placeholder="Ingrese su teléfono o celular" required onfocus="this.placeholder=''" onblur="this.placeholder='Ingrese su teléfono o celular'">
+                    {{ form.phone.label_tag }}
+                    <input id="id_phone" type="text" name="phone" 
+                    class="form-control w-100 {% if form.phone.errors %}border-danger{% endif %}" 
+                    placeholder="Ingrese su teléfono o celular" required onfocus="this.placeholder=''" 
+                    onblur="this.placeholder='Ingrese su teléfono o celular'">
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="input-group mt-3">
-                    <div class="col-12"><label for="address">Localidad</label></div>
+                    <label>Localidad</label>
                     <div class="col-12">
                       <div class="row">
                         <div class="col-6 p-0 pr-2">
-                          <select id="address" class="form-control w-100" name="departament">
-                            <option value="0">Departamento</option>
+                          <select id="id_departament" 
+                          class="form-control w-100 {% if form.departament.errors %}border-danger{% endif %}" 
+                          name="departament" onchange="get_departament_cities()" required>
+                            {% for option in form.departament %}
+                                {{ option }}
+                            {% endfor %}
                           </select>
                         </div>
                         <div class="col-6 p-0">
-                          <select class="form-control w-100" name="city">
-                            <option value="0">Ciudad</option>
+                          <select class="form-control w-100 {% if form.city.errors %}border-danger{% endif %}"
+                          name="city" id="id_city" required>
+                            <option value="">-- Elija departamento --</option>
                           </select>
                         </div>
                       </div>
@@ -146,15 +173,18 @@
                 </div>
                 <div class="col-12">
                   <div class="input-group mt-3">
-                    <label for="institution">Institución</label>
-                    <input id="institution" type="text" name="instition" class="form-control w-100" placeholder="Ingrese su institución" required onfocus="this.placeholder=''" onblur="this.placeholder='Ingrese su institución'">
+                    {{ form.institution.label_tag }}
+                    <input id="id_institution" type="text" name="institution" 
+                    class="form-control w-100 {% if form.institution.errors %}border-danger{% endif %}" 
+                    placeholder="Ingrese su institución" required onfocus="this.placeholder=''" 
+                    onblur="this.placeholder='Ingrese su institución'">
                   </div>
                 </div>
                   <div class="col-12">
                     <div class="input-group mt-3 d-flex">
                       <div class="primary-checkbox mt-1 mr-2">
-                        <input type="checkbox" name="terms" id="primary-checkbox" required>
-                        <label for="primary-checkbox"></label>
+                        <input type="checkbox" name="terms" id="id_terms" required>
+                        <label for="id_terms"></label>
                       </div>
                       <p class="mb-2">Acepto el <u><a href="#" style="color: #ff663b !important;"> acuerdo general del servicio</a></u></p>
                     </div>
@@ -172,4 +202,8 @@
 </section>
 <!-- form bussines end -->
 
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'js/prototype.js' %}"></script>
 {% endblock %}

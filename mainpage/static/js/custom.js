@@ -176,6 +176,7 @@ $('.scroll').on('click', function(e) {
   e.preventDefault();
   var offset = 0;
   var target = this.hash;
+  console.log(offset);
   if($(this).data('offset') != undefined) offset = $(this).data('offset');
   $('html, body').stop().animate({
     'scrollTop': $(target).offset().top - offset
@@ -184,4 +185,21 @@ $('.scroll').on('click', function(e) {
   });
 });
 
+$(window).on('load', function (){
+  $('#modalNewsletter').modal('show');
+});
+
 }(jQuery));
+
+function get_departament_cities(){
+  new Ajax.Request('get_cities/', { 
+    method: 'GET',
+    parameters: $H({'departament':$('id_departament').getValue()}),
+    onSuccess: function(transport) {
+        var e = $('id_city')
+        if(transport.responseText)
+            e.update(transport.responseText)
+    }
+    }); // end new Ajax.Request
+}
+
