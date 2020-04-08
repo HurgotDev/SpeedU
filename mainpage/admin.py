@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Newsletter, Country, Departament, City, Edition, Register
+from .models import Newsletter, Country, Departament, City, Register
 
 @admin.register(Register)
 class RegisterAdmin(admin.ModelAdmin):
@@ -13,11 +13,6 @@ class RegisterAdmin(admin.ModelAdmin):
         return "{}, {}, {}".format(obj.city, obj.city.departament, obj.city.departament.country)
 
     get_full_city.short_description = 'city'
-
-
-@admin.register(Edition)
-class EditionAdmin(admin.ModelAdmin):
-    list_display = ('name', 'active')
 
 @admin.register(Country)
 class CountryAdmin(admin.ModelAdmin):

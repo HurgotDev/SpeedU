@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 
 from .forms import RegisterForm, NewsletterForm
-from .models import Departament, City, Newsletter, Register, Edition
+from .models import Departament, City, Newsletter, Register
 
 def index(request):
     context = {
@@ -29,7 +29,6 @@ def started(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            edition = form.cleaned_data['edition']
             name = form.cleaned_data['name']
             lastname = form.cleaned_data['lastname']            
             email = form.cleaned_data['email']
@@ -44,8 +43,8 @@ def started(request):
                 messages.add_message(request, messages.SUCCESS, 
                     'Usted ya ha solicitado nuestros servicios. Por favor espere a que unos de nuestros asesores se comunique...')
             except:
-                register = Register(edition=Edition.objects.get(pk=edition), name=name, lastname=lastname,
-                    email=email, phone=phone, city=City.objects.get(pk=city), institution=institution)
+                register = Register(name=name, lastname=lastname, email=email, phone=phone,
+                    city=City.objects.get(pk=city), institution=institution)
                 register.save()
 
                 messages.add_message(request, messages.SUCCESS, "¡Registro exitoso!")

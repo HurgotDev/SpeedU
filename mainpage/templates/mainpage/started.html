@@ -103,17 +103,6 @@
               <div class="row">
                 <div class="col-12">
                   <div class="input-group mt-3">
-                    {{ form.edition.label_tag }}
-                    <select class="form-control w-100 {% if form.edition.errors %}border-danger{% endif %}"
-                    name="edition" id="id_edition" required>
-                      {% for option in form.edition %}
-                          {{ option }}
-                      {% endfor %}
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="input-group mt-3">
                     {{ form.name.label_tag }}
                     <input id="id_name" type="text" class="form-control w-100 {% if form.name.errors %}border-danger{% endif %}" 
                     name="name" placeholder="Ingrese sus nombres" 

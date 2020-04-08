@@ -1,10 +1,25 @@
 {% extends 'speedu_tutor/HTMLbase.html' %}
 
+{% load static %}
+
+{% block styles %}
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="{% static 'speedu_tutor/css/themes/theme-cyan.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block class_body %}theme-cyan{% endblock %}
+
 {% block content %}
-    <div class="row">
-        <div class="col-12 text-center">
-            <h2>En construcción</h2>
-            <p>Este servicio se encuetra en construcción.</p>
-        </div>
-    </div>
+    
+{% endblock %}
+
+{% block scripts %}
+    <!-- Select Plugin Js -->
+    <script src="{% static 'speedu_tutor/plugins/bootstrap-select/js/bootstrap-select.js' %}"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="{% static 'speedu_tutor/plugins/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+
+    <!-- Demo Js -->
+    <script src="{% static 'speedu_tutor/js/demo.js' %}"></script>
 {% endblock %}

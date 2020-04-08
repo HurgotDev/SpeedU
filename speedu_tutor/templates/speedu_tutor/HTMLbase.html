@@ -4,101 +4,188 @@
 <head>
     <meta charset="UTF-8">
     <title>SpeedU tutorias</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
-    <link href="https://fonts.googleapis.com/css?family=Prata&display=swap" rel="stylesheet">
+     <!-- Bootstrap Core Css -->
+     <link href="{% static 'speedu_tutor/plugins/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
 
-    <link rel="stylesheet" href="{% static 'speedu_tutor/css/open-iconic-bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'speedu_tutor/css/animate.css' %}">
+     <!-- Waves Effect Css -->
+    <link href="{% static 'speedu_tutor/plugins/node-waves/waves.css' %}" rel="stylesheet" />
     
-    <link rel="stylesheet" href="{% static 'speedu_tutor/css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'speedu_tutor/css/owl.theme.default.min.css' %}">
-    <link rel="stylesheet" href="{% static 'speedu_tutor/css/magnific-popup.css' %}">
+    <!-- Animation Css -->
+    <link href="{% static 'speedu_tutor/plugins/animate-css/animate.css' %}" rel="stylesheet" />
 
-    <link rel="stylesheet" href="{% static 'speedu_tutor/css/aos.css' %}">
-
-    <link rel="stylesheet" href="{% static 'speedu_tutor/css/ionicons.min.css' %}">
-		
-	<link rel="stylesheet" href="{% static 'speedu_tutor/css/bootstrap-datetimepicker.min.css' %}">
-	<link rel="stylesheet" href="{% static 'speedu_tutor/css/nouislider.css' %}">
-
-    
-    <link rel="stylesheet" href="{% static 'speedu_tutor/css/flaticon.css' %}">
-    <link rel="stylesheet" href="{% static 'speedu_tutor/css/icomoon.css' %}">
-    <link rel="stylesheet" href="{% static 'speedu_tutor/css/style.css' %}">
+    <!-- Custom Css -->
+    <link href="{% static 'speedu_tutor/css/style.css' %}" rel="stylesheet">   
 
     {% block styles %}{% endblock %}
 </head>
-<body>
+<body class="{% block class_body %}{% endblock %}">
 
-    {% block navbar %}
-        <div class="container-fluid px-0">
-            <div class="row no-gutters">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-info">
-                        <a class="navbar-brand" href="#">SpeedU Tutor</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
-                          <span class="oi oi-menu"></span>
-                        </button>
-                        <div class="collapse navbar-collapse ml-auto" id="navbarsExample02">
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item d-flex">
-                                    <a href="#" class="nav-link d-flex align-items-center icon"><i class="ion-ios-send"></i>Link1</a>
-                                </li>
-                                <li class="nav-item d-flex">
-                                    <a href="#" class="nav-link d-flex align-items-center icon"><i class="ion-logo-buffer"></i></a>
-                                </li>
-                                <li class="dropdown nav-item d-flex">
-                                    <a href="#" class="dropdown-toggle nav-link d-flex align-items-center icon" data-toggle="dropdown">
-                                        <i class="ion-ios-settings"></i>
-                                        <b class="caret"></b>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <h6 class="dropdown-header">Dropdown header</h6>
-                                        <a href="#" class="dropdown-item">Action</a>
-                                        <a href="#" class="dropdown-item">Another action</a>
-                                        <a href="#" class="dropdown-item">Something else here</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a href="#" class="dropdown-item">Separated link</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a href="#" class="dropdown-item">One more separated link</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                   </nav>
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
                 </div>
             </div>
+            <p>Cargando...</p>
         </div>
+    </div>
+    <!-- #END# Page Loader -->
+
+    {% block navs %}
+    
+        <!-- Overlay For Sidebars -->
+        <div class="overlay"></div>
+        <!-- #END# Overlay For Sidebars -->
+
+        <!-- Top Bar -->
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                    <a href="javascript:void(0);" class="bars"></a>
+                    <a class="navbar-brand" href="{% url 'index' %}">SpeedU - Tutorias</a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Notifications -->
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                <i class="material-icons">notifications</i>
+                                <span class="label-count">7</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">NOTIFICACIONES</li>
+                                <li class="body">
+                                    <ul class="menu">
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <div class="icon-circle bg-pink">
+                                                    <i class="material-icons">notifications</i>
+                                                </div>
+                                                <div class="menu-info">
+                                                    <h4>Modulo en desarrollo</h4>
+                                                    <p>
+                                                        <i class="material-icons">access_time</i>
+                                                        time
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- #END# Notifications -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- #Top Bar -->
+
+        <section>
+            <!-- Left Sidebar -->
+            <aside id="leftsidebar" class="sidebar">
+                <!-- User Info -->
+                <div class="user-info">
+                    <div class="image">
+                        <img src="{% static 'speedu_tutor/img/user.png' %}" width="48" height="48" alt="User" />
+                    </div>
+                    <div class="info-container">
+                        <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {% if user.first_name %}
+                                {{user.first_name}} {{user.last_name}}
+                            {% else %}
+                                Username: unkonown
+                            {% endif %}
+                        </div>
+                        <div class="email">{{user.email}}</div>
+                        <div class="btn-group user-helper-dropdown">
+                            <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="javascript:void(0);"><i class="material-icons">person</i>Perfil</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{% url 'logout' %}"><i class="material-icons">input</i>Cerrar sesion</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- #User Info -->
+                <!-- Menu -->
+                <div class="menu">
+                    <ul class="list">
+                        <li class="header">NAVEGACIÓN</li>
+                        <li>
+                            <a href="{% url 'index' %}">
+                                <i class="material-icons">home</i>
+                                <span>Inicio</span>
+                            </a>
+                        </li>                  
+                        <li>
+                            <a href="javascript:void(0);" class="menu-toggle">
+                                <i class="material-icons">class</i>
+                                <span>Tutorias</span>
+                            </a>
+                            <ul class="ml-menu">
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <span>Solicitar</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <span>Quiero ser tutor</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- #Menu -->
+                <!-- Footer -->
+                <div class="legal">
+                    <div class="copyright">
+                        &copy; 2016 - 2017 <a href="https://gurayyarar.github.io/AdminBSBMaterialDesign/index.html" target="_blank">AdminBSB - Material Design</a>.
+                        <br>Edit by: Hugo gutierrez (2020) for speedU
+                    </div>
+                    <div class="version">
+                        <b>Version: </b> 1.0.5
+                    </div>
+                </div>
+                <!-- #Footer -->
+            </aside>
+            <!-- #END# Left Sidebar -->
+            
     {% endblock %}
     
     {% block content %} 
     {% endblock %}
-    
-    <!-- loader -->
-    <div id="ftco-loader" class="show fullscreen">
-        <svg class="circular" width="48px" height="48px">
-            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
-            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#3e65ff"/>
-        </svg>
-    </div>    
 
-    <script src="{% static 'speedu_tutor/js/jquery.min.js' %}"></script>
-    <script src="{% static 'speedu_tutor/js/jquery-migrate-3.0.1.min.js' %}"></script>
-    <script src="{% static 'speedu_tutor/js/popper.min.js' %}"></script>
-    <script src="{% static 'speedu_tutor/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'speedu_tutor/js/jquery.easing.1.3.js' %}"></script>
-    <script src="{% static 'speedu_tutor/js/jquery.waypoints.min.js' %}"></script>
-    <script src="{% static 'speedu_tutor/js/jquery.stellar.min.js' %}"></script>
-    <script src="{% static 'speedu_tutor/js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'speedu_tutor/js/jquery.magnific-popup.min.js' %}"></script>
-    <script src="{% static 'speedu_tutor/js/aos.js' %}"></script>
-  
-    <script src="{% static 'speedu_tutor/js/nouislider.min.js' %}"></script>
-    <script src="{% static 'speedu_tutor/js/moment-with-locales.min.js' %}"></script>
-    <script src="{% static 'speedu_tutor/js/bootstrap-datetimepicker.min.js' %}"></script>
-    <script src="{% static 'speedu_tutor/js/main.js' %}"></script>
+
+     <!-- Jquery Core Js -->
+     <script src="{% static 'speedu_tutor/plugins/jquery/jquery.min.js' %}"></script>
+
+     <!-- Bootstrap Core Js -->
+     <script src="{% static 'speedu_tutor/plugins/bootstrap/js/bootstrap.js' %}"></script>
+ 
+     <!-- Waves Effect Plugin Js -->
+     <script src="{% static 'speedu_tutor/plugins/node-waves/waves.js' %}"></script>   
+      
+     <!-- Custom Js -->
+     <script src="{% static 'speedu_tutor/js/admin.js' %}"></script>
+     
+     {% block scripts %}{% endblock %}
 </body>
 </html>

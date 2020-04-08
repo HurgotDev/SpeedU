@@ -18,14 +18,6 @@ def path_and_rename(path, name=''):
         return os.path.join(path, filename)
     return wrapper
 
-
-class Edition(models.Model):
-    name = models.CharField('Nombre de la edición', max_length=100, unique=True)
-    active = models.BooleanField(default=True, help_text='Habilitar o deshabilitar esta edición')
-
-    def __str__(self):
-        return self.name
-
 # Models to localities
 
 class Country(models.Model):
@@ -65,7 +57,6 @@ class Register(models.Model):
     email = models.CharField(max_length=100, help_text='Correo de contacto')
     phone = models.IntegerField(help_text='Teléfono de contacto')
     city = models.ForeignKey(City, on_delete=models.CASCADE)
-    edition = models.ForeignKey(Edition, on_delete=models.CASCADE)
 
 class Newsletter(models.Model):
     email = models.CharField(max_length=100, unique=True, help_text='Correo suscrito al boletín informativo')
