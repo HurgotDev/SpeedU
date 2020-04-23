@@ -13,22 +13,22 @@
 
     <link rel="icon" href="{% static 'img/favicon.png' %}">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/css/bootstrap.min.css' %}">
     <!-- animate CSS -->
-    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/css/animate.css' %}">
     <!-- owl carousel CSS -->
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/css/owl.carousel.min.css' %}">
     <!-- themify CSS -->
-    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/css/themify-icons.css' %}">
     <!-- flaticon CSS -->
-    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/css/flaticon.css' %}">
     <!-- font awesome CSS -->
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/css/magnific-popup.css' %}">
     <!-- swiper CSS -->
-    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/css/slick.css' %}">
     <!-- style CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/custom-style.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/css/custom-style.css' %}">
 </head>
 
 <body>
@@ -38,7 +38,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand brand-logo" href="{% url 'index' %}"> <img src="{% static 'img/logo.png' %}" alt="SpeedU logo"> </a>
+                        <a class="navbar-brand brand-logo" href="{% url 'index' %}"> <img src="{% static 'mainpage/img/logo.png' %}" alt="SpeedU logo"> </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -58,10 +58,10 @@
                                     <a class="{% if scroll %}scroll{% endif %} nav-link" href="{{menu_links.contact }}" data-offset="20">Contacto</a>
                                 </li>
                                 <li class="d-none d-lg-block">
-                                    <a class="btn_1" href="login/">Ingresa</a>
+                                    <a class="btn_1" href="{% url 'login' %}">Ingresa</a>
                                 </li>
                                 <li class="nav-item d-block d-lg-none">
-                                    <a href="login/" class="btn_1 m-0 ml-1">Ingresa</a>
+                                    <a href="{% url 'login' %}" class="btn_1 m-0 ml-1">Ingresa</a>
                                 </li>
                             </ul>
                         </div>
@@ -146,27 +146,27 @@ SpeedU Copyright &copy;<script>document.write(new Date().getFullYear());</script
 
     <!-- jquery plugins here-->
     <!-- jquery -->
-    <script src="{% static 'js/jquery-1.12.1.min.js' %}"></script>
+    <script src="{% static 'mainpage/js/jquery-1.12.1.min.js' %}"></script>
     <!-- popper js -->
-    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'mainpage/js/popper.min.js' %}"></script>
     <!-- bootstrap js -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'mainpage/js/bootstrap.min.js' %}"></script>
     <!-- easing js -->
-    <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+    <script src="{% static 'mainpage/js/jquery.magnific-popup.js' %}"></script>
     <!-- swiper js -->
-    <script src="{% static 'js/swiper.min.js' %}"></script>
+    <script src="{% static 'mainpage/js/swiper.min.js' %}"></script>
     <!-- swiper js -->
-    <script src="{% static 'js/masonry.pkgd.js' %}"></script>
+    <script src="{% static 'mainpage/js/masonry.pkgd.js' %}"></script>
     <!-- particles js -->
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'mainpage/js/owl.carousel.min.js' %}"></script>
     <!--<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>-->
     <!-- swiper js -->
-    <script src="{% static 'js/slick.min.js' %}"></script>
-    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
-    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'mainpage/js/slick.min.js' %}"></script>
+    <script src="{% static 'mainpage/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'mainpage/js/waypoints.min.js' %}"></script>
     {% block scripts %}{% endblock %}
     <!-- custom js -->
-    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'mainpage/js/custom.js' %}"></script>
 </body>
 
 </html>

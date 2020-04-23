@@ -1,0 +1,102 @@
+{% extends 'speedu_tutor/bootstrap4/base.html' %}
+
+{% load static %}
+
+{% block metas %}
+    <meta name="theme-color" content="#f8f9fa">
+    <meta name="description" content="Ingresa a SpeedU tutor">
+{% endblock %}
+
+{% block title %}Ingresa{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'speedu_tutor/css/style.css' %}">
+{% endblock %}
+
+{% block body_attribs %}class="vh-100" style="background: #eee;"{% endblock %}
+
+{% block navbar %}{% endblock %}
+
+{% block content %}
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-sm-12 align-self-center">
+                <div class="row justify-content-center">
+                    <div class="col-12 mb-3">
+                        <div class="row justify-content-center">
+                            <div class="col-sm-12 col-md-7 col-lg-4">
+                                <img src="{% static 'mainpage/img/logo.png' %}" alt="" style="width: 205px;" class="d-block mx-auto">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="row justify-content-center">
+                            <div class="col-sm-12 col-md-7 col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center mb-4">
+                                                <h4 class="text-secondary">Ingresa</h4>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <form action="{% url 'login' %}" method="post" class="as-validated" id="sign_in">
+
+                                                    {% csrf_token %}
+
+                                                    {% if form.errors or user_invalid %}
+                                                        <div class="alert alert-danger">
+                                                            Usuario o contraseña incorrectos.
+                                                        </div>
+                                                    {% endif %}
+                                                    {% if next and user.is_authenticated %}
+                                                        <div class="alert alert-warning">    
+                                                            No tienes acceso a esta página. Ingresa con una cuenta que tenga acceso. 
+                                                        </div>                
+                                                    {% endif %}
+
+                                                    <div class="form-row">
+                                                        <div class="form-group col">
+                                                            <input type="email" class="form-control {% if form.errors or user_invalid %}is-invalid{%endif%}" name="email" placeholder="Correo electronico" required autofocus
+                                                            {% if form.email.value %} value="{{ form.email.value }}" {% endif %}>
+                                                        </div>
+                                                    </div>     
+                                                    <div class="form-row">
+                                                        <div class="form-group col">
+                                                            <input type="password" class="form-control {% if form.errors or user_invalid %}is-invalid{%endif%}" name="password" placeholder="Contraseña" required
+                                                            {% if form.password.value %} value="{{ form.password.value }}" {% endif %}>
+                                                        </div>
+                                                    </div> 
+
+                                                    <div class="row">
+                                                        <div class="col-sm-12 mb-3">
+                                                            <input type="checkbox" name="rememberme" id="rememberme">
+                                                            <label for="rememberme">Mantener sesión iniciada</label>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <button class="btn btn-block btn-info" type="submit">INGRESA</button>
+                                                        </div>
+                                                        <div class="col-sm-12 mt-3">
+                                                            <a href="javascript:void(0);">¿Olvidaste tu contraseña?</a>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <!-- Validation Plugin Js -->
+     <script src="{% static 'speedu_tutor/plugins/jquery-validation/jquery.validate.js' %}"></script>
+
+    <!-- custom js -->
+    <script src="{% static 'speedu_tutor/js/pages/auth/sign-in.js' %}"></script>
+{% endblock %}

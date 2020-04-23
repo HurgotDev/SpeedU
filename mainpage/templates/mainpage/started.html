@@ -20,71 +20,13 @@
 <!-- breadcrumb end-->
 
 <!-- form bussines start -->
-<section class="contact-section section_padding" id="contact">
+<section class="pt-5 pb-5 px-3" id="">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-8">
-        <div class="row mb-2 mb-md-4">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-8">
+        <div class="row">
           <div class="col-12">
-            <h3 class="text-center">SpeedU está disponible para insticiones</h3>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-sm-12 col-lg-7 mt-4 mt-md-5">
-              <div class="row h-100">
-                <div class="col-12">
-                  <div class="row">
-                    <div class="col-4 text-center text-success"><i class="ti-check-box ts-5"></i></div>
-                    <div class="col-8">
-                      <div class="row">
-                        <div class="col-12 border-bottom border-success">
-                          <h4>Educación superior</h4>
-                        </div>
-                        <div class="col-12">
-                          <p>
-                            Universidades<br>
-                            Institutos tecnológicos
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 mt-3 mt-md-5">
-                  <div class="row">
-                    <div class="col-4 text-center text-accent"><i class="ti-check-box ts-5"></i></div>
-                    <div class="col-8">
-                      <div class="row">
-                        <div class="col-12 border-bottom border-accent">
-                          <h4>Colegios</h4>
-                        </div>
-                        <div class="col-12">
-                          <p>Secundaria</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              <!--  <div class="col-12 mt-3">
-                  <div class="row">
-                    <div class="col-4 text-center text-primary"><i class="ti-check-box ts-5"></i></div>
-                    <div class="col-8">
-                      <div class="row">
-                        <div class="col-12 border-bottom border-primary">
-                          <h4>Hola</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>-->
-              </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="row mt-4 mt-md-0">
-          <div class="col-12">
-            <h2 class="contact-title text-center">Registrese para comenzar</h2>
+            <h2 class="text-center">Registrese para comenzar</h2>
           </div>
         </div>
         <div class="row">
@@ -92,47 +34,43 @@
             <form class="form-contact" action="{% url 'get-started' %}" method="post">
               {% csrf_token %}
               {% if form.errors %}
-                <p class="p-1 bg-danger text-center rounded text-white">
-                  {% if form.terms.errors %}
-                    Por favor acepte el acuerdo general del servicio
-                  {% else %}
+                <p class="p-1 bg-danger text-center rounded text-white">                  
                     Por favor, complete o corrija los campos
-                  {% endif %}
                 </p>
               {% endif %}
               <div class="row">
-                <div class="col-12">
+                <div class="col-sm-12 col-md-6 col-lg-6">
                   <div class="input-group mt-3">
                     {{ form.name.label_tag }}
                     <input id="id_name" type="text" class="form-control w-100 {% if form.name.errors %}border-danger{% endif %}" 
                     name="name" placeholder="Ingrese sus nombres" 
-                    required onfocus="this.placeholder = ''" onblur="this.placeholder='Ingrese sus nombres'">
+                     onfocus="this.placeholder = ''" onblur="this.placeholder='Ingrese sus nombres'">
                   </div>
                 </div>
-                <div class="col-12">
+                <div class="col-sm-12 col-md-6 col-lg-6">
                   <div class="input-group mt-3">
                     {{ form.lastname.label_tag }}
                     <input id="id_lastname" type="text" name="lastname"
                     class="form-control w-100 {% if form.lastname.errors %}border-danger{% endif %}"
-                    placeholder="Ingrese sus apellidos" required onfocus="this.placeholder=''"
+                    placeholder="Ingrese sus apellidos"  onfocus="this.placeholder=''"
                     onblur="this.placeholder='Ingrese sus apellidos'">
                   </div>
                 </div>
-                <div class="col-12">
+                <div class="col-sm-12 col-md-6 col-lg-6">
                   <div class="input-group mt-3">
                     {{ form.email.label_tag }}
                     <input id="id_email" type="email" name="email" 
                     class="form-control w-100 {% if form.email.errors %}border-danger{% endif %}" 
-                    placeholder="Ingrese su email" required onfocus="this.placeholder=''" 
+                    placeholder="Ingrese su email"  onfocus="this.placeholder=''" 
                     onblur="this.placeholder='Ingrese su correo'">
                   </div>
                 </div>
-                <div class="col-12">
+                <div class="col-sm-12 col-md-6 col-lg-6">
                   <div class="input-group mt-3">
                     {{ form.phone.label_tag }}
                     <input id="id_phone" type="text" name="phone" 
                     class="form-control w-100 {% if form.phone.errors %}border-danger{% endif %}" 
-                    placeholder="Ingrese su teléfono o celular" required onfocus="this.placeholder=''" 
+                    placeholder="Ingrese su teléfono o celular"  onfocus="this.placeholder=''" 
                     onblur="this.placeholder='Ingrese su teléfono o celular'">
                   </div>
                 </div>
@@ -144,7 +82,7 @@
                         <div class="col-6 p-0 pr-2">
                           <select id="id_departament" 
                           class="form-control w-100 {% if form.departament.errors %}border-danger{% endif %}" 
-                          name="departament" onchange="get_departament_cities()" required>
+                          name="departament" onchange="get_departament_cities()" >
                             {% for option in form.departament %}
                                 {{ option }}
                             {% endfor %}
@@ -152,7 +90,7 @@
                         </div>
                         <div class="col-6 p-0">
                           <select class="form-control w-100 {% if form.city.errors %}border-danger{% endif %}"
-                          name="city" id="id_city" required>
+                          name="city" id="id_city" >
                             <option value="">-- Elija departamento --</option>
                           </select>
                         </div>
@@ -165,17 +103,17 @@
                     {{ form.institution.label_tag }}
                     <input id="id_institution" type="text" name="institution" 
                     class="form-control w-100 {% if form.institution.errors %}border-danger{% endif %}" 
-                    placeholder="Ingrese su institución" required onfocus="this.placeholder=''" 
+                    placeholder="Ingrese su institución" onfocus="this.placeholder=''" 
                     onblur="this.placeholder='Ingrese su institución'">
                   </div>
                 </div>
                   <div class="col-12">
                     <div class="input-group mt-3 d-flex">
                       <div class="primary-checkbox mt-1 mr-2">
-                        <input type="checkbox" name="terms" id="id_terms" required>
-                        <label for="id_terms"></label>
+                        <input type="checkbox" name="terms" id="id_terms" >
+                        <label for=""></label>
                       </div>
-                      <p class="mb-2">Acepto el <u><a href="#" style="color: #ff663b !important;"> acuerdo general del servicio</a></u></p>
+                      <label for="id_terms" class="mb-2">Acepto el <u><a href="javascript:void(0);" style="color: #ff663b !important;"> acuerdo general del servicio</a></u></label>
                     </div>
                   </div>
               </div>
@@ -194,5 +132,5 @@
 {% endblock %}
 
 {% block scripts %}
-  <script src="{% static 'js/prototype.js' %}"></script>
+  <script src="{% static 'mainpage/js/prototype.js' %}"></script>
 {% endblock %}

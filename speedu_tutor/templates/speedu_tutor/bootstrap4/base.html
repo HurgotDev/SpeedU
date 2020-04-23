@@ -1,0 +1,27 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block metas %}{% endblock %}
+
+  <title>{% block title %}{% endblock %}</title>
+
+  {% bootstrap_css %}
+  
+  {% block styles %}{% endblock %}
+
+</head>
+<body {% block body_attribs %}{% endblock %}>
+  
+  {% block navbar %}{% endblock %}
+
+  {% block content %}{% endblock %}
+
+  {% bootstrap_javascript jquery='full' %}
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,25 +1,116 @@
-{% extends 'speedu_tutor/HTMLbase.html' %}
+{% extends 'speedu_tutor/layout.html' %}
 
 {% load static %}
 
-{% block styles %}
-    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="{% static 'speedu_tutor/css/themes/theme-cyan.css' %}" rel="stylesheet" />
-{% endblock %}
+{% block container%}
+    <div class="row mt-0 mt-md-3">
+        <div class="col-lg-4 col-md-5">
+            <div class="user-block bg-dark">
+                <div class="row row-condensed">
+                    <div class="col-12">
+                        <div class="user-info">
+                            <div class="user-wrapper">
+                                <div class="img-circle">
+                                    <img src="{{ user.student.institution.image.url }}" alt="{{ user.student.institution }}" class="img">
+                                </div>
+                            </div>
+                            <a href="{% url 'profile' %}" class="user-name h4">
+                                <span>{{ user.first_name }} {{ user.last_name }}</span>
+                            </a>
+                            <span class="user-career">{{ user.student.career }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-condensed">
+                    <div class="col-6">
+                        <h4 class="text-white">{{ user.student.semester }}</h4>
+                        <p class="item-data">Semestre</p>
+                    </div>
+                    <div class="col-6">
+                        <h4 class="text-white">
+                            {% if user.student.tutor and user.student.tutor.state == 'A' %}
+                                Estd. Tutor
+                            {% else %}
+                                Estudiante
+                            {% endif %}
+                        </h4>
+                        <p class="item-data">Rol</p>
+                    </div>
+                </div>
+            </div>
 
-{% block class_body %}theme-cyan{% endblock %}
-
-{% block content %}
-    
-{% endblock %}
-
-{% block scripts %}
-    <!-- Select Plugin Js -->
-    <script src="{% static 'speedu_tutor/plugins/bootstrap-select/js/bootstrap-select.js' %}"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="{% static 'speedu_tutor/plugins/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
-
-    <!-- Demo Js -->
-    <script src="{% static 'speedu_tutor/js/demo.js' %}"></script>
+            <div class="col-12 p-0">
+                <div class="su-box-common no-padding">
+                    <div id="slide-carousel-info" class="carousel slide" data-ride="carousel">                                   
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                    <div class="item-img">
+                                        <img src="{% static 'mainpage/img/testimonial_img_3.png' %}" alt="">
+                                    </div>   
+                                    <div class="p-3">
+                                        <p class="h4">¡Tips!</p>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ab rem nemo. Odio rem explicabo asperiores, maxime reiciendis vero ratione? Repudiandae animi doloremque corrupti, iusto minus quam eligendi mollitia eaque?</p>
+                                    </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="item-img">
+                                    <img src="{% static 'mainpage/img/single_cource.png' %}" alt="">
+                                </div>
+                                <div class="p-3">
+                                    <p class="h4">¡Tips!</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima nemo quos obcaecati, a distinctio sit cum error tempore dolorum consectetur nisi! Nostrum vel veritatis accusantium recusandae maxime, tempora perferendis. Sed!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <ol class="carousel-indicators">
+                            <li data-target="#slide-carousel-info" data-slide-to="0" class="active"></li>
+                            <li data-target="#slide-carousel-info" data-slide-to="1" class=""></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-8 col-md-7">
+            {% if not user.student.competitor_set.all %}
+                <div class="su-box-common su-banner">
+                    <div class="su-banner-content" style="background-image: url(http://{{ request.get_host }}{% static 'mainpage/img/advance_feature_img.png' %});">
+                        <div class="text-center-sm">
+                            <h4 class="text-primary">Ya puedes comenzar a buscar tutorias</h4>
+                            <h5 class="text-secondary">Pudes solicitar una o compartir tus conociemintos...</h5>
+                            <div class="d-flex justify-content-center justify-content-md-start">
+                                <a href="#" class="btn btn-sm btn-primary waves-effect">Solicita una tutoria</a>
+                                <a href="#" class="btn btn-sm btn-primary ml-2 waves-effect">Conviertete en tutor</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                {% for item in user.student.competitor_set.all %}
+                    {% if item.tutorial.state == '0' %}
+                        <div class="su-box-common no-padding">
+                            <div class="card-header">
+                                <a href="{{ item.tutorial.get_absolute_url }}" class="h4">
+                                    <span>{{ item.tutorial.schedule.tutor.subject }}</span>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b class="text-primary">Tutor: </b><span class="text-secondary">{{ item.tutorial.schedule.tutor }}</span><br>
+                                    <b class="text-primary">Día: </b><span class="text-secondary text-capitalize">{{ item.tutorial.schedule.day }}</span><br>
+                                    <b class="text-primary">Hora: </b><span class="text-secondary">{{ item.tutorial.schedule.hour_start }} - {{ item.tutorial.schedule.hour_end }}</span><br>
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        {{ item.tutorial.competitor_set.all.count }} estudiantes inscritos
+                                    </small>
+                                </p>
+                                <a href="{{ item.tutorial.get_absolute_url }}" class="btn btn-info btn-block waves-effect">Detalle</a>
+                            </div>
+                        </div>
+                    {% endif %}                                    
+                {% endfor %}                            
+            {% endif %}
+        </div>    
+    </div>
 {% endblock %}
