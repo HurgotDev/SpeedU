@@ -102,11 +102,13 @@ def profile(request):
 def tutorial_detail(request, pk):
     return render(request, 'speedu_tutor/index.html')
 
+def offline(request):
+    return render(request, 'speedu_tutor/layout.html', context={'title': 'Offline - SpeedU Tutor'})
+
 
 def service_worker(request):
     response = HttpResponse(open(app_settings.PWA_SERVICE_WORKER_PATH).read(), content_type='application/javascript')
     return response
-
 
 def manifest(request):
     return render(request, 'speedu_tutor/pwa/manifest.json')

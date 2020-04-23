@@ -11,6 +11,7 @@ urlpatterns = [
     url('^manifest.json$', views.manifest),
 
     path('tutor/', views.index, name='tutor'),
+    path('offline/', views.offline),
     path('tutor/profile/', views.profile, name='profile'),
 
     path('tutor/tutorial/<int:pk>/', views.tutorial_detail, name='tutorial-detail'),   

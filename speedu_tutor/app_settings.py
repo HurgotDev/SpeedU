@@ -1,5 +1,4 @@
 from django.conf import settings
-
 import os
 
 # Path to the service worker implementation.  Default implementation is empty.

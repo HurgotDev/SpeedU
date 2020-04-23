@@ -36,13 +36,13 @@
         // Initialize the service worker
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/serviceworker.js', {
-                scope: '.' // <--- THIS BIT IS REQUIRED
+                scope: '/' // <--- THIS BIT IS REQUIRED
             }).then(function (registration) {
                 // Registration was successful
-                console.log('django-progressive-web-app: ServiceWorker registration successful with scope: ', registration.scope);
+                console.log('[ServiceWorker] Rgistration successful');
             }, function (err) {
                 // registration failed :(
-                console.log('django-progressive-web-app: ServiceWorker registration failed: ', err);
+                console.log('[ServiceWorker] registration failed');
             });
         }
 

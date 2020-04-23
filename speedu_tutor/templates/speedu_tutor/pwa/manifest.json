@@ -1,59 +1,59 @@
 {
-    "short_name": "SpeeU",
+    "short_name": "SpeedU",
     "name": "SpeedU Tutor",
     "icons": [
       {
-        "src": "https://wkncdn.com/newx/assets/build/img/favicon.d167e7046.png",
+        "src": "http://localhost:8000/static/mainpage/img/favicon.png",
         "type": "image/png",
         "sizes": "16x16"
       },
       {
-        "src": "https://wkncdn.com/newx/assets/build/img/touch-icons/apple-touch-icon-57x57.e3d739d3d.png",
+        "src": "http://localhost:8000/static/mainpage/img/favicon.png",
         "sizes": "57x57",
         "type": "image/png"
       },
       {
-        "src": "https://wkncdn.com/newx/assets/build/img/touch-icons/apple-touch-icon-60x60.9e27bc3af.png",
+        "src": "http://localhost:8000/static/mainpage/img/favicon.png",
         "sizes": "60x60",
         "type": "image/png"
       },
       {
-        "src": "https://wkncdn.com/newx/assets/build/img/touch-icons/apple-touch-icon-72x72.ac8e23066.png",
+        "src": "http://localhost:8000/static/mainpage/img/favicon.png",
         "sizes": "72x72",
         "type": "image/png"
       },
       {
-        "src": "https://wkncdn.com/newx/assets/build/img/touch-icons/apple-touch-icon-76x76.b92702260.png",
+        "src": "http://localhost:8000/static/mainpage/img/favicon.png",
         "sizes": "76x76",
         "type": "image/png"
       },
       {
-        "src": "https://wkncdn.com/newx/assets/build/img/touch-icons/apple-touch-icon-114x114.2e6cbd53f.png",
+        "src": "http://localhost:8000/static/mainpage/img/favicon.png",
         "sizes": "114x114",
         "type": "image/png"
       },
       {
-        "src": "https://wkncdn.com/newx/assets/build/img/touch-icons/apple-touch-icon-120x120.9514a1088.png",
+        "src": "http://localhost:8000/static/mainpage/img/favicon.png",
         "sizes": "120x120",
         "type": "image/png"
       },
       {
-        "src": "https://wkncdn.com/newx/assets/build/img/touch-icons/apple-touch-icon-144x144.0d1fb42ba.png",
+        "src": "http://localhost:8000/static/mainpage/img/favicon.png",
         "sizes": "144x144",
         "type": "image/png"
       },
       {
-        "src": "https://wkncdn.com/newx/assets/build/img/touch-icons/apple-touch-icon-152x152.6690f77dd.png",
+        "src": "http://localhost:8000/static/mainpage/img/favicon.png",
         "sizes": "152x152",
         "type": "image/png"
       },
       {
-        "src": "https://wkncdn.com/newx/assets/build/img/touch-icons/apple-touch-icon-180x180.63b971307.png",
+        "src": "http://localhost:8000/static/mainpage/img/favicon.png",
         "sizes": "180x180",
         "type": "image/png"
       },
       {
-        "src": "https://wkncdn.com/newx/assets/build/img/touch-icons/android-chrome-192x192.f52505d18.png",
+        "src": "http://localhost:8000/static/mainpage/img/favicon.png",
         "sizes": "192x192",
         "type": "image/png"
       }
